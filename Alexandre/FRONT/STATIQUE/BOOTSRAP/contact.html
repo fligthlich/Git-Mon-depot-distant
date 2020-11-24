@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Entête de page -->
+        <header>
+            <!-- Logo du site -->
+            <figure>
+                <img src="img/jarditou_logo.jpg" alt="logo jarditou" id="logo" width="150">
+                <figcaption class="float-right"><h2>Tout le jardin</h2></figcaption>
+            </figure>
+            <!-- Navigation du site -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">Jarditou.com</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Accueil <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="tableau.html">Tableau</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="contact.html">Contact</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Rechercher" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
+                </form>
+                </div>
+            </nav>
+            <!-- logo publicitaire -->
+            <img class="img-fluid max-width:100%" src="img/promotion.jpg" alt="Promotion 20%"> 
+        </header>
+        <h1>Contact</h1>
+            <hr>
+        <!-- Section 1 et Article -->
+        <section>
+            <p>Ces zones sont obligatoires</p>
+            <!-- Formulaire de contact -->
+            <form action="page.php" method="post">
+                <fieldset>
+                    <legend>Vos coordonnées</legend>
+                    <label for="fname" >Votre nom*:</label>
+                    <input type="text" class="form-control" id="fname" name="fname" required><br>
+                    <label for="lname" >Votre prénom*:</label>
+                    <input type="text" class="form-control" id="lname" name="lname" required><br>
+                    <label>Sexe*:</label>
+                    <input type="radio" id="female" name="sex" value="female" required>
+                    <label for="female">Féminin</label>
+                    <input type="radio" id="male" name="sex" value="male" required>
+                    <label for="male">Masculin</label><br>
+                    <label for="birth" >Date de naissance*:</label>
+                    <input type="date" class="form-control" id="birth" name="birth" required><br>
+                    <label for="adress" >Adresse:</label>
+                    <input type="text" class="form-control" id="adress" name="adress"><br>
+                    <label for="city" >Ville:</label>
+                    <input type="text" class="form-control" id="city" name="city"><br>
+                    <label for="email" >Email*:</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="dave.loper@afpa.fr" required>
+                </fieldset>
+                <fieldset class="form-group">
+                    <legend>Votre demande</legend>
+                    <label for="topic">Sujet*:</label>
+                    <select class="form-control" id="topic">
+                        <option value="Veuillez sélectionner votre sujet">Veuillez sélectionner votre sujet</option>
+                        <option value="produit défectueux">Votre produit est défectueux</option>
+                        <option value="retourner produit">Retourner votre article</option>
+                    </select>
+                    <br>
+                    <label for="message">Votre question*:</label>
+                    <textarea class="form-control" id="message" name="message" cols="20" rows="2" placeholder="Votre qestion" required></textarea>
+                </fieldset>
+                <input type="checkbox" id="validate" name="validate" required>
+                <label for="validate">* J'accepte le traitement informatique de ce formulaire</label>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-dark" value="Envoyer">
+                    <input type="reset" class="btn btn-dark" value="Annuler">
+                </div>
+                
+            </form>
+        </section>
+        <hr>
+        <!-- Pied de page -->
+        <footer>
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#">Mention légales</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Horaires</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Plan du site</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
