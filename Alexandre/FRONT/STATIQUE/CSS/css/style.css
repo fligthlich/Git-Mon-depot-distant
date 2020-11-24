@@ -1,0 +1,126 @@
+/* définition d'une largeur de 1110px */
+body
+{
+    width: 1110px;
+    margin: auto;
+}
+/* style du menu et pied de page*/
+ul
+{
+    list-style-type: none;
+}
+li
+{
+    display: inline;
+}
+nav
+{
+    width: auto;
+    padding: 8px;
+    margin-bottom: 5px;
+    background-color: black;
+}
+a
+{
+    color: white;
+}
+/* positionnement du conteneur article et colonne de droite */
+#container
+{
+    display: flex;
+    margin: 5px 0 5px 0;
+}
+#left
+{
+    width: 800px;
+}
+#right
+{
+    width: 310px;
+    background-color: darkgray;
+}
+
+/* mise en page du tableau */
+
+table
+{
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 50%;
+}
+th
+{
+    border: thin solid black;
+    width: 50%;
+    padding: 5px;
+    background-color: rgb(13, 177, 48);
+}
+td
+{
+    border: thin solid black;
+    width: 50%;
+    padding: 5px;
+    text-align: center;
+    background-color: rgb(142, 168, 142);
+} 
+/* mise en page formulaire */
+
+form
+{
+    background-color: rgb(187, 184, 184);
+    width: 50%;
+    padding: 10px;
+}
+fieldset
+{
+    border: 1px solid rgb(18, 18, 18);
+    padding: 10px;
+    margin: 5px;
+}
+legend
+{
+    color: rgb(18, 18, 18);
+    font-weight: bold;
+}
+input
+{
+    margin: 5px;
+
+}
+
+/* ajustement au format mobile */
+@media screen and (max-width: 768px){
+    #left, #right
+    {
+        width: 100%;
+    
+    }
+    #right
+    {
+        display: none;
+    }
+    body{
+        width: 100%;
+        margin:auto;
+    }
+    #container{
+        display: block;
+        width: 100%;
+    }
+    #logo_pub{
+        width: 100%;
+    }
+    li 
+    {
+        display: flex;
+    }
+
+    h1 
+    {
+        font-size:25px ;
+    }
+    h2
+    {
+        font-size: 15px;
+    } 
+}
