@@ -268,10 +268,17 @@ strtok(str1,";",2);
 
 /*****************************************************TABLEAU****************************************************************/
 //Exercice 1
-let nombre = 2;
-let tab = new Array(nombre);
+let user = parseInt(window.prompt("Veuillez entrer le nombre d'espace pour le tableau:"));
+let tab = Array(user);
+for (i = 0 ; i < tab.length; i++)
+{
+    let value = window.prompt("Entrer les valeurs du tableau");
+    tab[i] = value;
+    document.write(tab[i] + "<br>");
+}
 
-console.log(tab);
+
+    
 
 
 
