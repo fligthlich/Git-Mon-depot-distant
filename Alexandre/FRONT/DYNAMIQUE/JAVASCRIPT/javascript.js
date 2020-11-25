@@ -239,7 +239,7 @@ produit(nombre1,nombre2);
 
 
 /*****************************************************EXERCICE2*******************************************/
-
+/*
 function strtok(str1,str2,n)
 {
     reponse = str1.split(str2,n);
@@ -263,11 +263,12 @@ function strtok(str1,str2,n)
 str1 = "robert;dupond;amiens;80000";
 
 strtok(str1,";",2);
-
+*/
 //***********************************************FIN EXERCICES FONCTIONS *****************************************************/
 
 /*****************************************************TABLEAU****************************************************************/
 //Exercice 1
+/*
 let user = parseInt(window.prompt("Veuillez entrer le nombre d'espace pour le tableau:"));
 let tab = Array(user);
 for (i = 0 ; i < tab.length; i++)
@@ -276,9 +277,114 @@ for (i = 0 ; i < tab.length; i++)
     tab[i] = value;
     document.write(tab[i] + "<br>");
 }
+*/
+//Exercice 2
 
+function GetInteger(text)
+{
+    loop = true;
+    while (loop != false) 
+    {
+        nbInt = parseInt(window.prompt(text));
+        if (Number.isInteger(nbInt))
+        {
+            //alert("Vous avez entrer la valeur" + nbInt)
+            break;
+        }
+        else
+        {
+            alert("Vous devez Entrer un Entier!!!!");
+            continue;
+        }
+      
+    }
+    return nbInt;
+}
 
+function InitTab()
+{
+    let user = GetInteger("Veuillez renseigner un nombre d'éléments dans votre tableau");
+    let tab = Array(user);
+    return tab;
+}
+
+function SaisieTab(tab)
+{
+
+    for (let i = 0 ; i < tab.length ; i++)
+    {
+        let value = GetInteger("Entrer les valeurs du tableau:",tab);
+        tab[i] = value;
+       
+    }
+    return tab;
+}
+
+function AfficheTab(tab)
+{
+    for(let i = 0 ; i < tab.length ; i++)
+    {
+        document.write("Valeur " + i + " => " + tab[i] + "<br>");
+
+        console.log(tab[i]);
+    }
+}
+
+function RechercheTab(tab)
+{
+    let value = GetInteger("Veuillez indiquer l'index du tableau à rechercher");
+    (value > tab.length) ? console.log("Vous avez indiquer un élément qui n \' exite pas !!!!") :  console.log("La valeur rechercher est => " + tab[value]);
     
+
+}
+
+function InfoTab(tab)
+{   
+    let max = 0;
+    let moyenne = 0;
+    for (let i = 0; i < tab.length; i++ )
+    {
+        moyenne = moyenne + tab[i];
+        
+    }
+    console.log(tab.length);
+    max = Math.max.apply(null,tab);
+    document.write("L' élément maximum est => " + max);
+    document.write("<br>")
+    console.log("L' élément maximum est => " + max);
+    moyenne = moyenne / tab.length;
+    document.write("La moyenne est => " + moyenne);
+    console.log("La moyenne est => " + moyenne);
+}
+
+
+
+loop = true ; 
+let tab = InitTab();
+SaisieTab(tab);
+
+while(loop != false)
+{
+    let choice = parseInt(window.prompt("Veuillez choisir un choix :\n1-Affichage de tous les postes du tableau\n2-Affichage du contenu d'un poste taper l'index\n3-Affichage du Max et de la moyenne des postes du tableau"));
+
+    switch (choice) {
+        case 1:
+            AfficheTab(tab);
+            alert("Valeur du tableau " + tab);
+            break;
+        case 2:
+            RechercheTab(tab);
+            break;
+        case 3:
+            InfoTab(tab);
+            break;
+    
+        default:
+            loop = false;
+            break;
+    }
+}
+
 
 
 
