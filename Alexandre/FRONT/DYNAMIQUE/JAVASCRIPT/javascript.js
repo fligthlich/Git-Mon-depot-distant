@@ -279,7 +279,7 @@ for (i = 0 ; i < tab.length; i++)
 }
 */
 //Exercice 2
-
+/*
 function GetInteger(text)
 {
     loop = true;
@@ -384,6 +384,72 @@ while(loop != false)
             break;
     }
 }
+
+*/
+
+/***************************************************************************Exercices3**********************************************************/
+let tab_int = [10,1,22,5,15,16,2,3,7,6,8,11];
+
+
+function trie_bulle(tab)
+{     
+    let tab_trie = false;
+    // Boucle while tant que tab_trie est faux execute le programme 
+    while (tab_trie == false) 
+    {
+        tab_trie = true;// On passe la varialble à vrai
+        // pour la variable i = 0 si i est inférieur à nombre de valeur tableau execute jusqu'a i egale a valeur tableau
+        for (let i = 0 ; i < tab_int.length-1; i++)
+        {
+            if (tab[i] > tab[i+1])// si valeur tableau index0 est plus grand que valeur tableau index1 entre dans la condition 
+            {
+                let tmp = tab[i];// déclaration variable temporaire et affectation avec la valeur tableau index 0
+                console.log("affectation de la valeur de l'index => " + tab[i] + " par la valeur de l'index => " + tab[i+1])
+
+                tab[i] = tab[i+1];// affectation index0 par index tableau 1
+                
+                tab[i+1] = tmp;// affectation index1 par valeur temporaire qui correspond à la valeur de l'index 0
+                console.log("affectation de la valeur l'index => " + tab[i+1] + " par la valeur de la variable temporaire => " + tmp);
+                tab_trie = false;// On passe a faux variable tab_trie
+            }
+        }    
+    }
+    return tab;// retourne la valeur du tableau
+}
+// tableau avant tri
+console.log("TABLEAU AVANT TRI=>");
+console.log(tab_int);
+console.log("TABLEAU APRES TRI=>");
+console.log(trie_bulle(tab_int));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
