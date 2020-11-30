@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Nous contacter</title>
+   <style>
+       form{
+           width: 450px;
+           margin: auto;
+       }
+       label{
+           text-align: center;
+           display:block;
+           margin: 3px;
+           width: 175px;
+           float: left;
+           
+       }
+       input,select{
+           
+           float: left;
+           height: 20px;
+           margin: 3px;
+       }
+   </style>
+</head>
+<body>
+   
+    <form id="form1" method="POST"  action="page.php">
+    
+        <fieldset>
+            <legend>Vos coordonnées</legend>
+            <label for="societe">Société:</label>
+            <input type="text" id="societe" name="societe" minlength="1"><br>
+            <label for="contactPersonne" id="labelContact">Personne à contacter:</label>
+            <input type="text" name="contact" id="contact" minlength="1"><em id="warning"></em><br>
+            <label for="adress" id="adress">Adresse de l'entreprise:</label>
+            <input type="text" name="adress" id="adress"><br>
+            <label for="codePostal" id="codePostal">Code Postal:</label>
+            <input type="number" id="codePostal" minlength="1" maxlength="5" ><br>
+            <label for="ville">Ville:</label>
+            <input type="text" id="ville" name="ville"><br>
+            <label for="email">Votre émail</label>
+            <input type="email" id="email" name="email"><br>
+            <label for="telephone">Votre téléphone</label>
+            <input type="number" id="telephone" name="telephone"><br>
+            <label for="projet">Votre projet</label>
+            <textarea name="selectionProjet" id="" cols="30" rows="5" style="width: 170px;"></textarea><br>
+            <select name="envTechnique" id="projet">
+                <option value="">--Choisissez--</option>
+                <option value="Access">Access</option> 
+                <option value="Java">Java</option>
+                <option value="Delphi">Delphi</option>
+                <option value="Windev">Windev</option>
+                <option value="Visual Basic">Visual Basic</option>
+                <option value="Internet">Internet</option>
+                <option value="Intranet">Intranet</option>
+                <option value="Windows NT">Windows NT</option>
+                <option value="Unix">Unix</option>
+                <option value="SQL Server">SQL Server</option>
+                <option value="Oracle">Oracle</option>
+                <option value="Autres">Autres</option>
+            </select><br>
+            <input type="submit" name="envoyer" id="envoyer" value="Envoyer">
+            <input type="reset" name="effacer" id="effacer" value="Effacer">
+            
+
+        </fieldset>
+        
+    
+    </form>
+   
+   
+
+   <script src="test.js"></script>
+</body>
+</html>
