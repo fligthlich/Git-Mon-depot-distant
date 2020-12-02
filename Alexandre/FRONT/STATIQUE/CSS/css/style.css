@@ -90,19 +90,19 @@ input
 
 /* ajustement au format mobile */
 @media screen and (max-width: 768px){
+    body{
+        width: 100%;
+        margin:auto;
+    }
     #left, #right
     {
         width: 100%;
-    
     }
     #right
     {
         display: none;
     }
-    body{
-        width: 100%;
-        margin:auto;
-    }
+    
     #container{
         display: block;
         width: 100%;
