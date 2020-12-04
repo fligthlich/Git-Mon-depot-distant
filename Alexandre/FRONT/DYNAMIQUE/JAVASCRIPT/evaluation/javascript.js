@@ -152,6 +152,14 @@ bouton4.addEventListener('click',function(event){
 
 
 
+/***************************************************************EXERCICE 5*******************************************************/
+// Déclaration bouton 5
+
+let btn5 = document.getElementById('btn5');
+
+btn5.addEventListener('click',function(event){
+    document.location.href = "file:///C:/Users/80010-75-05/Desktop/GIT%20Mon%20d%C3%A9pot%20local/Alexandre/FRONT/DYNAMIQUE/JAVASCRIPT/evaluation/Exercice5/contact.html";
+})
 
 
 

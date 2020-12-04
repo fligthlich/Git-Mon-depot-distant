@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <title>Document</title>
 </head>
 <body>
@@ -54,41 +56,41 @@
         <section>
             <p>Ces zones sont obligatoires</p>
             <!-- Formulaire de contact -->
-            <form action="page.php" method="post">
+            <form id="form"action="http://bienvu.net/script.php" method="post">
                 <fieldset>
                     <legend>Vos coordonnées</legend>
                     <label for="fname" >Votre nom*:</label>
-                    <input type="text" class="form-control" id="fname" name="fname" required><br>
+                    <input type="text" class="form-control" id="fname" name="fname"><small></small><br>
                     <label for="lname" >Votre prénom*:</label>
-                    <input type="text" class="form-control" id="lname" name="lname" required><br>
+                    <input type="text" class="form-control" id="lname" name="lname"><small></small><br>
                     <label>Sexe*:</label>
-                    <input type="radio" id="female" name="sex" value="female" required>
+                    <input type="radio" id="female" name="sex" value="female">
                     <label for="female">Féminin</label>
-                    <input type="radio" id="male" name="sex" value="male" required>
-                    <label for="male">Masculin</label><br>
+                    <input type="radio" id="male" name="sex" value="male">
+                    <label for="male">Masculin</label><br><small id = "sex"></small><br>
                     <label for="birth" >Date de naissance*:</label>
-                    <input type="date" class="form-control" id="birth" name="birth" required><br>
+                    <input type="date" class="form-control" id="birth" name="birth"><small></small><br>
                     <label for="adress" >Adresse:</label>
-                    <input type="text" class="form-control" id="adress" name="adress"><br>
+                    <input type="text" class="form-control" id="adress" name="adress"><small></small><br>
                     <label for="city" >Ville:</label>
-                    <input type="text" class="form-control" id="city" name="city"><br>
+                    <input type="text" class="form-control" id="city" name="city"><small></small><br>
                     <label for="email" >Email*:</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="dave.loper@afpa.fr" required>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="dave.loper@afpa.fr"><small></small>
                 </fieldset>
                 <fieldset class="form-group">
                     <legend>Votre demande</legend>
                     <label for="topic">Sujet*:</label>
-                    <select class="form-control" id="topic">
+                    <select class="form-control" id="topic" name="topic">
                         <option value="Veuillez sélectionner votre sujet">Veuillez sélectionner votre sujet</option>
                         <option value="produit défectueux">Votre produit est défectueux</option>
                         <option value="retourner produit">Retourner votre article</option>
-                    </select>
+                    </select><small>ici le texte</small>
                     <br>
                     <label for="message">Votre question*:</label>
-                    <textarea class="form-control" id="message" name="message" cols="20" rows="2" placeholder="Votre qestion" required></textarea>
+                    <textarea class="form-control" id="message" name="message" cols="20" rows="2" placeholder="Votre qestion"></textarea><small></small>
                 </fieldset>
-                <input type="checkbox" id="validate" name="validate" required>
-                <label for="validate">* J'accepte le traitement informatique de ce formulaire</label>
+                <input type="checkbox" id="accept" name="accept" value="accepter">
+                <label for="validate">* J'accepte le traitement informatique de ce formulaire</label><br><small class="accept"></small>
                 <div class="form-group">
                     <input type="submit" class="btn btn-dark" value="Envoyer">
                     <input type="reset" class="btn btn-dark" value="Annuler">
@@ -111,5 +113,6 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="source.js"></script>
 </body>
 </html>

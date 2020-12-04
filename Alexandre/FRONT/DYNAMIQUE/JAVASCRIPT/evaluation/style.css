@@ -1,0 +1,45 @@
+body{
+    /*background-image: url("img/java-code-coding-c.jpg");*/
+}
+
+header, section{
+    text-align: center;
+    
+}
+header{
+    margin: auto;
+    padding: 20px;
+}
+h1{
+    font-size: 100px;
+    font-style: italic;
+    color: yellow;
+}
+div{
+    margin: 50px;
+}
+button{
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 20px;
+    border: hidden;
+    box-shadow:20px -10px 20px red;
+    background-color: red;
+    color: white;
+
+}
+
+button:hover{
+    color: red;
+    background-color: grey;
+}
+
+p{
+    padding: 10px;
+    color : red;
+    font-size: 20px;
+    font-style: bold;
+   
+}
+
