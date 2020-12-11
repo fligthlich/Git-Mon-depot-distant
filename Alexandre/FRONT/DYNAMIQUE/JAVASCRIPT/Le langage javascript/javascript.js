@@ -190,7 +190,7 @@ for (i = 1; i <= nb_N; i++) // i = nombre pour la comparaison à nb_N
 }
 */
 /***********************************************BOUCLE EXERCICES 5******************************************/
-/*
+
 let chosenWord = window.prompt("Choisissez un mot:");
 let nb_vowels = 0;
 let nb_consonant = 0;
@@ -198,6 +198,7 @@ let nb_consonant = 0;
 for (i = 0; i <= chosenWord.length - 1; i++)
 {
     let letter = chosenWord.substr(i,1);
+    console.log("la " + i + " lettre est : " + letter);
     if (letter.toLowerCase() == "a" || letter.toLowerCase() == "e" || letter.toLowerCase() == "i" || letter.toLowerCase() == "o" || letter.toLowerCase() == "u" || letter.toLowerCase() == "y") 
     {
       console.log(letter + " Voyelle");
@@ -217,7 +218,7 @@ let wordConsonan= "";
 (nb_consonant > 1) ? wordConsonan = " consonnes" : wordConsonan = " consonne"; // condition pour vérifier si le nombre de consonne et sup à 1 on met un s à consonne.
 
 console.log("Dans le mot " + chosenWord.toLocaleUpperCase() + " vous avez " + nb_vowels + wordVowels + " et " + nb_consonant +  wordConsonan + ".")
-*/
+
 
 //************************************************FONCTION***********************************************/
 /**********************************************EXERCICE1*************************************************/
@@ -388,6 +389,7 @@ while(loop != false)
 */
 
 /***************************************************************************Exercices3**********************************************************/
+/*
 let tab_int = [10,1,22,5,15,16,2,3,7,6,8,11];
 
 
@@ -421,7 +423,7 @@ console.log("TABLEAU AVANT TRI=>");
 console.log(tab_int);
 console.log("TABLEAU APRES TRI=>");
 console.log(trie_bulle(tab_int));
-
+*/
 
 
 
