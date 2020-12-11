@@ -262,6 +262,44 @@ ON entcom.numfou = fournis.numfou
 WHERE obscom LIKE '%urgent%';
 
 --12.Coder de 2manières différentes la requête suivante:Lister lenom desfournisseurs susceptibles de livrer au moins un article
+SELECT nomfou
+FROM ligcom
+INNER JOIN entcom
+ON ligcom.numcom = entcom.numcom
+INNER JOIN fournis
+ON entcom.numfou = fournis.numfou
+WHERE qteliv >= 1;
+--et
+SELECT DISTINCT nomfou
+FROM ligcom
+INNER JOIN entcom
+ON ligcom.numcom = entcom.numcom
+INNER JOIN fournis
+ON entcom.numfou = fournis.numfou
+WHERE qteliv >= 1;
+
+--13.Coder de 2 manières différentes la requête suivanteLister les commandes (Numéro et date) dont le fournisseur est celui de la commande 70210
+SELECT ligcom.numcom AS 'Numéro', ligcom.derliv
+FROM ligcom
+INNER JOIN entcom
+ON ligcom.numcom = entcom.numcom
+WHERE entcom.numcom = 70210;
+
+--et
+SELECT ligcom.numcom AS 'Numéro' , datcom
+FROM ligcom
+INNER JOIN entcom
+ON ligcom.numcom = entcom.numcom
+WHERE ligcom.numcom > 70100 AND ligcom.numcom < 70250
+
+--14.Dans les articles susceptibles d’être vendus, lister les articles moins chers (basés sur Prix1) que le moins cher des rubans (article dont le premier caractère commence par R). On affichera le libellé de l’article et prix1
+SELECT produit.libart AS 'Libellé Article', MIN(prix1)
+FROM vente
+INNER JOIN produit
+ON vente.codart = produit.codart
+WHERE vente.codart LIKE 'r%'
+GROUP BY produit.libart
+
 
 
 
