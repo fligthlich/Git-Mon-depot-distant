@@ -86,6 +86,53 @@ INNER JOIN hotel
 ON chambre.cha_hot_id = hotel.hot_id;
 
 /********************************LOT 3***************************************/
+--MEMO compte le nombre d'article commander par fournisseur
+SELECT nomfou,COUNT(*)
+FROM produit
+INNER JOIN ligcom
+ON produit.codart = ligcom.codart
+INNER JOIN entcom
+ON ligcom.numcom = entcom.numcom
+INNER JOIN fournis
+ON entcom.numfou = fournis.numfou
+GROUP BY nomfou
+-- si on ajoute 
+HAVING nomfou = 'eclipse' -- specifie pour un fournisseur en particulier qui est Eclipse
+--compte le nombre de produit identique commande par fournisseur 
+SELECT nomfou,produit.codart,COUNT(*)
+FROM produit
+INNER JOIN ligcom
+ON produit.codart = ligcom.codart
+INNER JOIN entcom
+ON ligcom.numcom = entcom.numcom
+INNER JOIN fournis
+ON entcom.numfou = fournis.numfou
+GROUP BY nomfou,produit.codart
+-- si on ajoute 
+HAVING nomfou = 'eclipse' -- specifie pour un fournisseur en particulier qui est Eclipse
+--compte le nombre de produit identique commander par fournisseur avec le libellé de l'article 
+SELECT nomfou,produit.codart,COUNT(*),produit.libart
+FROM produit
+INNER JOIN ligcom
+ON produit.codart = ligcom.codart
+INNER JOIN entcom
+ON ligcom.numcom = entcom.numcom
+INNER JOIN fournis
+ON entcom.numfou = fournis.numfou
+GROUP BY nomfou,produit.codart
+--groupe par nom de fournisseur les articles et le numero de facture 
+SELECT nomfou,produit.codart,ligcom.numcom,count(*)
+FROM produit
+INNER JOIN ligcom
+ON produit.codart = ligcom.codart
+INNER JOIN entcom
+ON ligcom.numcom = entcom.numcom
+INNER JOIN fournis
+ON entcom.numfou = fournis.numfou
+GROUP BY nomfou,produit.codart,ligcom.numcom
+/*******************************************************************************************************************************************************************************/
+/*******************************************************************************EXERCICE****************************************************************************************/
+/*******************************************************************************************************************************************************************************/
 --Compter le nombre d’hôtel par station
 SELECT sta_nom AS 'Nom station', COUNT(hot_nom) AS `Nombre d\'hotel par station`
 FROM hotel
@@ -251,7 +298,7 @@ INNER JOIN fournis
 ON entcom.numfou = fournis.numfou;
 
 --11.Sortir les produits des commandes ayant le mot "urgent' en observation?(Afficher le numéro de commande, le nom du fournisseur, le libellé du produit et le sous total= quantité commandée * Prix unitaire)
-SELECT ligcom.numcom AS 'Numéro de commande', nomfou AS 'Nom fournisseur', produit.libart 'Libellé produit', (qtecde * priuni) AS 'Sous total'
+SELECT ligcom.numcom AS 'Numéro de commande', nomfou AS 'Nom fournisseur', produit.libart AS 'Libellé produit', (qtecde * priuni) AS 'Sous total'
 FROM produit
 INNER JOIN ligcom
 ON produit.codart = ligcom.codart
@@ -293,12 +340,70 @@ ON ligcom.numcom = entcom.numcom
 WHERE ligcom.numcom > 70100 AND ligcom.numcom < 70250
 
 --14.Dans les articles susceptibles d’être vendus, lister les articles moins chers (basés sur Prix1) que le moins cher des rubans (article dont le premier caractère commence par R). On affichera le libellé de l’article et prix1
-SELECT produit.libart AS 'Libellé Article', MIN(prix1)
-FROM vente
-INNER JOIN produit
-ON vente.codart = produit.codart
-WHERE vente.codart LIKE 'r%'
-GROUP BY produit.libart
+SELECT produit.libart, prix1 FROM produit
+INNER JOIN vente 
+ON produit.codart = vente.codart
+WHERE delliv > 0 AND  prix1 < (SELECT prix1 FROM vente WHERE codart LIKE 'r%'LIMIT 1);
+
+--15.Editer la liste des fournisseurs susceptibles de livrer les produits dont le stock est inférieur ou égal à 150 % du stock d'alerte. La liste est triée par produit puis fournisseur
+SELECT distinct nomfou AS 'Nom fournisseur', produit.libart AS 'Libellé produit'
+FROM produit
+INNER JOIN ligcom
+ON produit.codart = ligcom.codart
+INNER JOIN entcom
+ON ligcom.numcom = entcom.numcom
+INNER JOIN fournis
+ON entcom.numfou = fournis.numfou
+WHERE qteliv > 0 AND stkphy <= stkale * 150/100
+ORDER BY nomfou DESC;
+
+--16.Éditer la liste des fournisseurs susceptibles de livrer les produit dont le stock est inférieur ou égal à 150 % du stock d'alerte et un délai de livraison d'au plus 30 jours. La liste est triée par fournisseur puis produit
+SELECT nomfou AS 'Nom fournisseur', produit.libart AS 'Libellé produit'
+FROM produit
+INNER JOIN ligcom
+ON produit.codart = ligcom.codart
+INNER JOIN entcom
+ON ligcom.numcom = entcom.numcom
+INNER JOIN fournis
+ON entcom.numfou = fournis.numfou
+INNER JOIN vente
+ON fournis.numfou = vente.numfou
+WHERE qteliv > 0 AND stkphy <= stkale * 150/100 AND delliv > 30
+GROUP BY nomfou,produit.libart
+
+
+--17.
+SELECT nomfou, SUM(qtecde) AS total
+FROM ligcom
+INNER JOIN entcom
+ON ligcom.numcom = entcom.numcom
+INNER JOIN fournis
+ON entcom.numfou = fournis.numfou
+GROUP BY nomfou
+
+
+
+
+/******************************************************************Les besoins de mise à jours****************************************************************************/
+--1.Application d'une augmentation de tarif de 4% pour le prix 1, 2% pour le prix2 pour le fournisseur 9180
+UPDATE vente
+SET 
+prix1 = prix1 * 1.04,
+prix2 = prix2 * 1.02
+WHERE numfou = 9180
+--2.Dans la table vente, mettre à jour le prix2 des articles dont le prix2 est null, en affectant a valeur de prix.
+UPDATE vente 
+SET prix2 = 10 
+WHERE prix2 = 0
+--3.Mettre à jour le champ obscom en positionnant '*****' pour toutes les commandes dont le fournisseur a un indice de satisfaction <5
+UPDATE entcom
+INNER JOIN fournis
+ON entcom.numfou = fournis.numfou
+SET obscom = '*****'
+WHERE satisf < 5;
+--4.Suppression du produit I110
+DELETE FROM produit
+WHERE codart = 'I110';
 
 
 
